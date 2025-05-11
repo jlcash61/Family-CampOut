@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <title>Annual Family CampOut</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+
+</head>
+
+<body>
+  <main class="body">
+    <h1>📘 Welcome to The 2025 Family CampOut!</h1>
+
+    <h2>🏕️ Join us for a fun-filled weekend!</h2>
+    <p>Use the links below to explore the event schedule, campground map, and camping policies.</p>
+    <div class="campout-image-container">
+
+      <img src="images/familyCampoutTitlePic.png" alt="Family CampOut" class="campout-image" />
+
+      <ul class="link-list">
+        <li><a href="map.html">🗺️ View Campground Map</a></li>
+        <li><a href="rules.html">📋 View Camping Policies</a></li>
+        <li><a href="waterzone.html">💦 Water Zone & Swimming Policies</a></li>
+
+        <!-- You can add more like: -->
+        <!-- <li><a href="schedule.html">🕒 View Weekend Schedule</a></li> -->
+      </ul>
+
+    </div>
+
+
+  </main>
+
+  <button id="install-btn">📥 Download for Offline Use</button>
+
+  <script src="main.js?=v1.0.1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(console.error);
+    }
+  </script>
+
+</body>
+
+</html>
