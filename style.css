@@ -19,16 +19,15 @@ main.body {
 .campout-image-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
   align-items: flex-start;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
-/* Make image smaller for better mobile fit */
 .campout-image {
-  width: 160px;
-  height: auto;
+  max-width: 300px;
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
@@ -40,9 +39,8 @@ main.body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  min-width: 160px;
-  flex: 1;
+  gap: 1rem;
+  min-width: 240px;
 }
 
 .link-list li a {
@@ -50,13 +48,12 @@ main.body {
   background-color: #2d89ef;
   color: #fff;
   text-decoration: none;
-  text-align: center;
-  padding: 0.75rem;
   font-weight: bold;
-  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .link-list li a:hover {
@@ -80,10 +77,10 @@ main.body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ========== Responsive ========== 
-@media (max-width: 768px) {
+/* ========== Responsive ========== */
+@media (max-width: 512px) {
   .campout-image-container {
     flex-direction: column;
     align-items: center;
   }
-} */
+}
