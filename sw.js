@@ -1,16 +1,16 @@
-const CACHE_NAME = 'campout-site-v1.2.0';
+const CACHE_NAME = 'campout-site-v1.2.1';
 const OFFLINE_ASSETS = [
   '/',
   '/index.html',
-  '/policies.html',
+  '/rules.html',
   '/map.html',
   '/waterzone.html',
   '/style.css',
   '/main.js',
   '/manifest.json',
   '/images/jelleyStone Family 1.2.png',
-  '/images/jelleyStone FamilyHD.png',
-  '/images/campground-map.png'
+  '/images/jelleyStone FamilyHD.png'
+  
 ];
 
 self.addEventListener('install', event => {
