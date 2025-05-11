@@ -36,13 +36,22 @@
       overflow: hidden;
       border-radius: 8px;
       border: 1px solid #ccc;
+      text-align: center;
     }
 
-    .map-container img {
+    .zoomable-map {
       width: 100%;
-      height: auto;
-      display: block;
+      max-width: 100%;
+      transition: transform 0.3s ease;
       border-radius: 8px;
+      cursor: zoom-in;
+      display: inline-block;
+    }
+
+    .zoomable-map.zoomed-in {
+      transform: scale(2);
+      cursor: zoom-out;
+      z-index: 10;
     }
 
     .map-caption {
@@ -67,14 +76,19 @@
     <h1>🗺️ Campground Map</h1>
     
     <div class="map-container">
-      <a href="images/jelleyStone FamilyHD.png" target="_blank">
-      <img src="images/jelleyStone Family 1.2.png" alt="Family Portrait"
-        style="width: 100%; max-width: 100%; height: auto; border-radius: 8px;" />
-    </a>
+      <img src="images/jelleyStone Family 1.2.png" alt="Campground Map" class="zoomable-map" />
     </div>
-    <p class="map-caption">Tap the map to view full-size or zoom in</p>
+
+    <p class="map-caption">Tap the map to zoom in</p>
 
     <a class="back-link" href="index.html">⬅️ Back to Home</a>
   </main>
+
+  <script>
+    const mapImage = document.querySelector('.zoomable-map');
+    mapImage.addEventListener('click', () => {
+      mapImage.classList.toggle('zoomed-in');
+    });
+  </script>
 </body>
 </html>

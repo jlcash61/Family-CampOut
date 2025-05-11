@@ -21,12 +21,15 @@
     <p>Use the links below to explore the event schedule, campground map, and camping policies.</p>
     <div class="campout-image-container">
 
-      <img src="images/familyCampoutTitlePic.png" alt="Family CampOut" class="campout-image" />
+      <a href="map.html">
+  <img src="images/jelleyStone Family 1.2.png" alt="Family CampOut Map" class="campout-image" />
+</a>
+
 
       <ul class="link-list">
-        <li><a href="map.html">🗺️ View Campground Map</a></li>
-        <li><a href="rules.html">📋 View Camping Policies</a></li>
-        <li><a href="waterzone.html">💦 Water Zone & Swimming Policies</a></li>
+       
+        <li><a href="rules.html">📋 Camping Policies</a></li>
+        <li><a href="waterzone.html">💦 Water Policies</a></li>
 
         <!-- You can add more like: -->
         <!-- <li><a href="schedule.html">🕒 View Weekend Schedule</a></li> -->
@@ -39,7 +42,7 @@
 
   <button id="install-btn">📥 Download for Offline Use</button>
 
-  <script src="main.js?=v1.0.1"></script>
+  <script src="main.js?=v1.1.0"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').catch(console.error);
