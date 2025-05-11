@@ -1,7 +1,7 @@
 {
   "name": "2025 Family CampOut",
   "short_name": "CampOut",
-  "start_url": "/index.html",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2d89ef",

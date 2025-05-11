@@ -1,4 +1,4 @@
-const CACHE_NAME = 'campout-site-v1';
+const CACHE_NAME = 'campout-site-v1.2.0';
 const OFFLINE_ASSETS = [
   '/',
   '/index.html',
