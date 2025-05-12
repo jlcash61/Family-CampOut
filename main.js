@@ -1,7 +1,5 @@
 // ========== Service Worker Registration ==========
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(console.error);
-}
+
 
 // ========== PWA Install Button ==========
 let deferredPrompt;
