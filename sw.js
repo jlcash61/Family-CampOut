@@ -1,5 +1,5 @@
 // sw.js  (version bump => v2)
-const CACHE = 'familycampout-v2';
+const CACHE = 'familycampout-v5';
 const ASSETS = [
   '/',                 // clean URL → index.html
   '/index.html',
@@ -8,8 +8,8 @@ const ASSETS = [
   '/waterzone.html',
   '/style.css',
   '/icons/icon-512.png',
-  '/images/jelleyStone Family 1.2.png',
-  '/images/jelleyStone FamilyHD.png'
+  '/images/jelleyStoneMap.png',
+  '/images/jelleyStoneMapHD.png'
 ];
 
 self.addEventListener('install', event => {
@@ -31,11 +31,17 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   // Navigation requests: serve the HTML from cache first
   if (event.request.mode === 'navigate') {
-    event.respondWith(
-      caches.match('/index.html').then(resp => resp || fetch(event.request))
-    );
-    return;
-  }
+  event.respondWith(
+    // 1. Try network (works when online & keeps fresh copies)
+    fetch(event.request)
+      // 2. If network fails (offline) or 404s, fall back to cache
+      .catch(() => caches.match(event.request))
+      // 3. If the specific page isn’t cached, show the homepage shell
+      .then(resp => resp || caches.match('/index.html'))
+  );
+  return;
+}
+
   // Static assets
   event.respondWith(
     caches.match(event.request).then(
