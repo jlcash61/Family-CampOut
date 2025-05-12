@@ -1,4 +1,4 @@
-const CACHE_NAME = 'campout-site-v1.2.2';
+const CACHE_NAME = 'campout-site-v1.2.3';
 const OFFLINE_ASSETS = [
   '/',
   '/index.html',
@@ -37,9 +37,27 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    fetch(event.request, { redirect: 'follow' })
-      .catch(() => caches.match(event.request))
-      .then(response => response || caches.match('/index.html'))
+    caches.match(event.request).then(cachedResponse => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      return fetch(event.request, { redirect: 'follow' }).then(networkResponse => {
+        // Handle redirected responses safely
+        if (
+          !networkResponse ||
+          networkResponse.status !== 200 ||
+          networkResponse.type === 'opaqueredirect'
+        ) {
+          return caches.match('/index.html');
+        }
+
+        return networkResponse;
+      }).catch(() => {
+        // Final offline fallback
+        return caches.match('/index.html');
+      });
+    })
   );
 });
 
