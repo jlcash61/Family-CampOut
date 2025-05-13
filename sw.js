@@ -1,4 +1,4 @@
-const CACHE = 'familycampout-v16';
+const CACHE = 'familycampout-v17';
 const ASSETS = [
   '/',                 // clean URL → index.html
   '/index',
@@ -28,23 +28,32 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // Navigation requests: serve the HTML from cache first
-  if (event.request.mode === 'navigate') {
-  event.respondWith(
-    // 1. Try network (works when online & keeps fresh copies)
-    fetch(event.request)
-      // 2. If network fails (offline) or 404s, fall back to cache
-      .catch(() => caches.match(event.request))
-      // 3. If the specific page isn’t cached, show the homepage shell
-      .then(resp => resp || caches.match('/index.html'))
-  );
-  return;
-}
 
-  // Static assets
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      // ① cache first
+      caches.match(event.request).then(async cached => {
+        if (cached) return cached;          // offline OK ✅
+
+        // ② Not cached → try network (online case)
+        try {
+          const fresh = await fetch(event.request);
+          // ③ Stash a copy for next time
+          const cache = await caches.open(CACHE);
+          cache.put(event.request, fresh.clone());
+          return fresh;
+        } catch (err) {
+          // ④ Network failed & no cached copy → fallback to home
+          return caches.match('/index.html');
+        }
+      })
+    );
+    return;
+  }
+
+  // Static assets – leave cache-first as you have it
   event.respondWith(
-    caches.match(event.request).then(
-      resp => resp || fetch(event.request)
-    )
+    caches.match(event.request).then(r => r || fetch(event.request))
   );
 });
+
