@@ -1,14 +1,14 @@
-const CACHE = 'familycampout-v9';
+const CACHE = 'familycampout-v10';
 const ASSETS = [
   '/',                 // clean URL → index.html
-  'index.html',
-  'map.html',
-  'rules.html',
-  'waterzone.html',
-  'style.css',
-  'icons/icon-512.png',
-  'images/jelleyStoneMap.png',
-  'images/jelleyStoneMapHD.png'
+  '/index.html',
+  '/map.html',
+  '/rules.html',
+  '/waterzone.html',
+  '/style.css',
+  '/icons/icon-512.png',
+  '/images/jelleyStoneMap.png',
+  '/images/jelleyStoneMapHD.png'
 ];
 
 self.addEventListener('install', event => {
