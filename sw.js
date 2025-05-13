@@ -1,6 +1,6 @@
-const CACHE = 'familycampout-v10';
+const CACHE = 'familycampout-v11';
 const ASSETS = [
-  '/',                 // clean URL → index.html
+  // clean URL → index.html
   '/index.html',
   '/map.html',
   '/rules.html',
@@ -30,16 +30,16 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   // Navigation requests: serve the HTML from cache first
   if (event.request.mode === 'navigate') {
-  event.respondWith(
-    // 1. Try network (works when online & keeps fresh copies)
-    fetch(event.request)
-      // 2. If network fails (offline) or 404s, fall back to cache
-      .catch(() => caches.match(event.request))
-      // 3. If the specific page isn’t cached, show the homepage shell
-      .then(resp => resp || caches.match('/index.html'))
-  );
-  return;
-}
+    event.respondWith(
+      // 1. Try network (works when online & keeps fresh copies)
+      fetch(event.request)
+        // 2. If network fails (offline) or 404s, fall back to cache
+        .catch(() => caches.match(event.request))
+        // 3. If the specific page isn’t cached, show the homepage shell
+        .then(resp => resp || caches.match('/index.html'))
+    );
+    return;
+  }
 
   // Static assets
   event.respondWith(
