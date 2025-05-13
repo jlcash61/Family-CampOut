@@ -2,7 +2,7 @@
 body {
   font-family: system-ui, sans-serif;
   background-color: #fafafa;
-  
+
   margin: 0;
   padding: 0;
 }
@@ -95,4 +95,16 @@ main.body p {
     flex-direction: column;
     align-items: center;
   }
+}
+
+/* site-wide footer tweaks */
+footer {
+  text-align: center;
+  /* <<< centers the content */
+  padding: 0.5rem 0;
+  /* optional: a little breathing room */
+  font-size: 0.85rem;
+  /* optional: slightly smaller text */
+  color: #555;
+  /* optional: muted gray */
 }

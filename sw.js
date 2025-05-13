@@ -1,5 +1,5 @@
 /**************************************************************
- *  Service-worker for 2025 Family CampOut      (NO LOGIC CHANGES)
+ *           Service-worker for 2025 Family CampOut      
  *
  *  ▸  Pre-caches the core HTML, CSS, icons, and map images
  *  ▸  Handles two categories of requests:
@@ -14,7 +14,7 @@
  *      — Bump this any time you change any file listed in ASSETS
  *        or add/remove something from the service-worker code itself.
  */
-const CACHE = 'familycampout-v5';
+const CACHE = 'familycampout-v6';
 
 /*  ➤ 2.  Files to precache during the install step
  *      — Paths are absolute from the site root (leading “/”).
@@ -60,7 +60,7 @@ self.addEventListener('activate', event => {
         // delete all caches whose names do NOT match current CACHE
         Promise.all(
           keys.filter(k => k !== CACHE)
-              .map(k => caches.delete(k))
+            .map(k => caches.delete(k))
         )
       )
   );

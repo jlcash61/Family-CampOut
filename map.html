@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,7 +34,7 @@
 
     .map-container {
       width: 100%;
-      overflow: hidden;
+      overflow: auto;
       border-radius: 8px;
       border: 1px solid #ccc;
       text-align: center;
@@ -49,8 +50,10 @@
     }
 
     .zoomable-map.zoomed-in {
-      transform: scale(2);
+      width: 200%;
+      max-width: none;
       cursor: zoom-out;
+      text-align: center;
       z-index: 10;
     }
 
@@ -71,10 +74,11 @@
     }
   </style>
 </head>
+
 <body>
   <main>
     <h1>🗺️ Campground Map</h1>
-    
+
     <div class="map-container">
       <img src="images/jelleyStoneMapHD.png" alt="Campground Map" class="zoomable-map" />
     </div>
@@ -91,4 +95,5 @@
     });
   </script>
 </body>
+
 </html>
