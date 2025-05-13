@@ -1,10 +1,10 @@
-const CACHE = 'familycampout-v11';
+const CACHE = 'familycampout-v12';
 const ASSETS = [
   // clean URL → index.html
-  '/index.html',
-  '/map.html',
-  '/rules.html',
-  '/waterzone.html',
+  'index.html',
+  'map.html',
+  'rules.html',
+  'waterzone.html',
   '/style.css',
   '/icons/icon-512.png',
   '/images/jelleyStoneMap.png',
